@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.db
+# Unreal
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+**/Plugins/Marketplace/
+.vs/
+*.sln

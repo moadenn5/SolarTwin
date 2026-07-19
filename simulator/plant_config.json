@@ -1,0 +1,38 @@
+{
+  "plant": {
+    "id": "PLANT-OZT01",
+    "name": "SolarTwin Ouarzazate",
+    "latitude": 30.92,
+    "longitude": -6.91,
+    "altitude": 1140,
+    "timezone": "Africa/Casablanca",
+    "capacity_mwc": 5.01
+  },
+  "bess": null,
+  "module": {
+    "model": "GenericMono-435W",
+    "pdc0_w": 435,
+    "gamma_pdc": -0.0035,
+    "width_m": 1.134,
+    "height_m": 2.278
+  },
+  "layout": {
+    "tilt_deg": 25,
+    "azimuth_deg": 180,
+    "row_pitch_m": 7.0,
+    "panels_per_string": 24,
+    "table_rows": 2,
+    "table_cols": 12
+  },
+  "inverters": [
+    {
+      "id": "INV01",
+      "pac_max_kw": 1250,
+      "strings": 120,
+      "position": {
+        "x": 0,
+        "y": -20
+      }
+    }
+  ]
+}
