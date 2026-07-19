@@ -33,6 +33,33 @@
         "x": 0,
         "y": -20
       }
+    },
+    {
+      "id": "INV02",
+      "pac_max_kw": 1250,
+      "strings": 120,
+      "position": {
+        "x": 0,
+        "y": -60
+      }
+    },
+    {
+      "id": "INV03",
+      "pac_max_kw": 1250,
+      "strings": 120,
+      "position": {
+        "x": 0,
+        "y": -100
+      }
+    },
+    {
+      "id": "INV04",
+      "pac_max_kw": 1250,
+      "strings": 120,
+      "position": {
+        "x": 0,
+        "y": -140
+      }
     }
   ]
 }
