@@ -18,7 +18,8 @@ TZ = ZoneInfo(CFG["plant"]["timezone"])
 # --- Horloge simulée : 1 s réelle = TIME_SCALE s simulées ---
 TIME_SCALE = 60          # 60 => une journée en 24 min. Mets 1 pour du temps réel.
 _start_real = time.time()
-_start_sim = datetime.now(TZ)
+#_start_sim = datetime.now(TZ)
+_start_sim = datetime.now(TZ).replace(hour=11, minute=0, second=0)
 
 
 def now_sim():
@@ -58,6 +59,9 @@ def publish(topic, payload):
 # --- Boucle principale : 1 tick par seconde réelle ---
 print(f"Simulation démarrée (TIME_SCALE={TIME_SCALE}). Ctrl+C pour arrêter.")
 try:
+    #fault_engine.kill_string("INV01-STR005", datetime.now(TZ)) #a supprimer
+    #pyranometer.fail("stuck", stuck_value=850.0)
+  
     while True:
         t = now_sim()
         cloud = cloud_engine.tick(TIME_SCALE)          # dt simulé = TIME_SCALE s
