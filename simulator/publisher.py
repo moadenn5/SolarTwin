@@ -18,8 +18,9 @@ TZ = ZoneInfo(CFG["plant"]["timezone"])
 # --- Horloge simulée : 1 s réelle = TIME_SCALE s simulées ---
 TIME_SCALE = 60          # 60 => une journée en 24 min. Mets 1 pour du temps réel.
 _start_real = time.time()
-#_start_sim = datetime.now(TZ)
-_start_sim = datetime.now(TZ).replace(hour=11, minute=0, second=0)
+_start_sim = datetime.now(TZ)
+
+#_start_sim = datetime.now(TZ).replace(hour=11, minute=0, second=0)
 
 
 def now_sim():
@@ -93,8 +94,9 @@ try:
             publish(f"{inv_id}/{sid}/telemetry", {
                 "ts": t.isoformat(), "i_dc": i_meas, "v_dc": v_meas,
                 "p_dc_w": round((i_meas or 0) * (v_meas or 0), 0),
-                "quality": "BAD" if i_q == "BAD" else i_q,
+                "quality": "BAD" if "BAD" in (i_q, v_q) else ("UNCERTAIN" if "UNCERTAIN" in (i_q, v_q) else "GOOD"),
                 "derate_truth": derates[sid],
+                
             })
 
         # Onduleurs (rendement 98 %, échauffement lié à la charge)
